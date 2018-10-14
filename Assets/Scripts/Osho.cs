@@ -7,13 +7,13 @@ using UnityEngine;
 /// </summary>
 public class Osho : BaseKoma {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    protected override void Start() {
+        base.Start();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
