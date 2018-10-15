@@ -12,10 +12,14 @@ public class GameManager : MonoBehaviour {
     public GameObject oshoPrefab;
     public GameObject hisyaPrefab;
 
-	// Use this for initialization
-	void Start () {
+    //移動候補のマス目に合わせるハイライト
+    public GameObject HighlightPrefab;
+
+    // Use this for initialization
+    void Start () {
         SetupKoma();
-	}
+        Instantiate(HighlightPrefab, new Vector3(1, 1, 0.0f), Quaternion.identity);
+    }
 
     /// <summary>
     /// 駒の初期設定の処理を記載する予定。

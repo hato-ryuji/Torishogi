@@ -236,6 +236,8 @@ MonoBehaviour:
   oshoPrefab: {fileID: 1893007551718568, guid: 0c0bc2d1faacdfd4d99c008145a155de, type: 2}
   hisyaPrefab: {fileID: 1389212959231512, guid: 462b87bb6c8698940bcdbee5674f9943,
     type: 2}
+  HighlightPrefab: {fileID: 1718042316063028, guid: 8ab1a37e6fba71448a156e89adcfe6e2,
+    type: 2}
 --- !u!4 &535933660
 Transform:
   m_ObjectHideFlags: 0
