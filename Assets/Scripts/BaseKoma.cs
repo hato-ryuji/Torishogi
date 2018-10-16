@@ -9,14 +9,21 @@ using UnityEngine.EventSystems;
 public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
     protected SpriteRenderer spriteRenderer;
     protected bool isSelected = false;
+    protected List<Movable> movableList = new List<Movable>();
+
+    protected GameManager gameManager;
 
     // Use this for initialization
     protected virtual void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        SetupMovableList();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    protected abstract void SetupMovableList();
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -30,5 +37,7 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
         Color color = spriteRenderer.color;
         color.a = isSelected ? 0.7f : 1.0f;
         spriteRenderer.color = color;
+
+        gameManager.HighlightMovableTile(movableList, gameObject);
     }
 }

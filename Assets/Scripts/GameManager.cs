@@ -39,9 +39,42 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void HighlightMovableTile(List<Movable> movableList, GameObject komaGameObject) {
+        Vector3 komaPosition = komaGameObject.transform.position;
+        foreach (var movable in movableList) {
+            if (movable.isAny) {
+                Movable SlideMovable = new Movable(0, 0, false);    //何マスでも移動可能な場合の座標保持
+                while (true) {
+                    SlideMovable.x += movable.x;
+                    SlideMovable.y += movable.y;
+                    if (!HighlightMovableTile(komaPosition, SlideMovable)) {
+                        //盤面外の場合はループを辞める
+                        break;
+                    }
+                }
+            }
+            else {
+                HighlightMovableTile(komaPosition, movable);
+            }
+        }
+    }
+
+    private bool HighlightMovableTile(Vector3 komaPosition, Movable movable) {
+        float HighlightPositionX = komaPosition.x + movable.x;
+        float HighlightPositionY = komaPosition.y + movable.y;
+
+        //盤面外ならハイライトは表示しない
+        if (HighlightPositionX < 0 || HighlightPositionX >= columns ||
+            HighlightPositionY < 0 || HighlightPositionY >= rows) {
+            return false;
+        }
+        Instantiate(HighlightPrefab, new Vector3(HighlightPositionX, HighlightPositionY, 0.0f), Quaternion.identity);
+        return true;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
