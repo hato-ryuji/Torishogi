@@ -34,9 +34,9 @@ public class Map : MonoBehaviour {
     /// 選択中の駒を返す
     /// </summary>
     /// <value>The active unit.</value>
- //   public BaseKoma FocusingUnit {
- //       get { return onBoardKomaList.First(x => x.isSelected); }
- //   }
+    public BaseKoma FocusingUnit {
+        get { return onBoardKomaList.FirstOrDefault(x => x.isSelected); }
+    }
 
     /// <summary>
     /// 駒の初期設定の処理を記載する予定。
@@ -47,10 +47,14 @@ public class Map : MonoBehaviour {
         for (int x = 0; x < columns; x++) {
             for (int y = 0; y < rows; y++) {
                 if (kirikae) {
-                    Instantiate(oshoPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
+                    GameObject komaObject = Instantiate(oshoPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
+                    BaseKoma baseKoma = komaObject.GetComponent<BaseKoma>();
+                    onBoardKomaList.Add(baseKoma);
                 }
                 else {
-                    Instantiate(hisyaPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
+                    GameObject komaObject = Instantiate(hisyaPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
+                    BaseKoma baseKoma = komaObject.GetComponent<BaseKoma>();
+                    onBoardKomaList.Add(baseKoma);
                 }
                 kirikae = !kirikae;
             }

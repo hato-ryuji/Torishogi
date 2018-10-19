@@ -35,20 +35,26 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
     /// <param name="eventData"></param>
     public virtual void OnPointerClick(PointerEventData eventData) {
 
-      //  if (map.FocusingUnit == null) {
+        Debug.Log(map.FocusingUnit);
+        Debug.Log(this);
+
+        if (map.FocusingUnit == null) {
+            Debug.Log("A");
             Focusing();
             map.AddHighlightMovableTile(movableList, gameObject);
-      //  }
-      //  else if (map.FocusingUnit ==　this) {
-      //      Unfocusing();
-      //      map.ClearHighlightMovableTile();
-      //  }
-      //  else if(map.FocusingUnit != this) {
-      //      //map.FocusingUnitに対してフォーカス取り消し処理
-      //      map.ClearHighlightMovableTile();
-    //        Focusing();
-  //          map.AddHighlightMovableTile(movableList, gameObject);
-//        }
+        }
+        else if (map.FocusingUnit ==　this) {
+            Debug.Log("B");
+            Unfocusing();
+            map.ClearHighlightMovableTile();
+        }
+        else if(map.FocusingUnit != this) {
+            Debug.Log("C");
+            //map.FocusingUnitに対してフォーカス取り消し処理
+            map.ClearHighlightMovableTile();
+            Focusing();
+            map.AddHighlightMovableTile(movableList, gameObject);
+        }
     }
 
     /// <summary>
@@ -59,7 +65,6 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
         Color color = spriteRenderer.color;
         color.a = 0.7f;
         spriteRenderer.color = color;
-        isSelected = this;
     }
 
     /// <summary>
@@ -70,6 +75,5 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
         Color color = spriteRenderer.color;
         color.a = 1.0f;
         spriteRenderer.color = color;
-        isSelected = false;
     }
 }
