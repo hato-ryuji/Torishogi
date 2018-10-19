@@ -8,16 +8,18 @@ using UnityEngine.EventSystems;
 /// </summary>
 public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
     protected SpriteRenderer spriteRenderer;
-    protected bool isSelected = false;
+    public bool isSelected = false;
     protected List<Movable> movableList = new List<Movable>();
 
     protected GameManager gameManager;
+    protected Map map;
 
     // Use this for initialization
     protected virtual void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetupMovableList();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        map = GameObject.Find("GameManager").GetComponent<Map>();
     }
 
     protected abstract void SetupMovableList();
@@ -32,12 +34,42 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
     /// </summary>
     /// <param name="eventData"></param>
     public virtual void OnPointerClick(PointerEventData eventData) {
-        Debug.Log("OnPointerClick オブジェクトのクリックを検知");
-        isSelected = !isSelected;
-        Color color = spriteRenderer.color;
-        color.a = isSelected ? 0.7f : 1.0f;
-        spriteRenderer.color = color;
 
-        gameManager.HighlightMovableTile(movableList, gameObject);
+      //  if (map.FocusingUnit == null) {
+            Focusing();
+            map.AddHighlightMovableTile(movableList, gameObject);
+      //  }
+      //  else if (map.FocusingUnit ==　this) {
+      //      Unfocusing();
+      //      map.ClearHighlightMovableTile();
+      //  }
+      //  else if(map.FocusingUnit != this) {
+      //      //map.FocusingUnitに対してフォーカス取り消し処理
+      //      map.ClearHighlightMovableTile();
+    //        Focusing();
+  //          map.AddHighlightMovableTile(movableList, gameObject);
+//        }
+    }
+
+    /// <summary>
+    /// この駒が選択状態になった
+    /// </summary>
+    private void Focusing() {
+        isSelected = true;
+        Color color = spriteRenderer.color;
+        color.a = 0.7f;
+        spriteRenderer.color = color;
+        isSelected = this;
+    }
+
+    /// <summary>
+    /// この駒が非選択状態になった
+    /// </summary>
+    private void Unfocusing() {
+        isSelected = false;
+        Color color = spriteRenderer.color;
+        color.a = 1.0f;
+        spriteRenderer.color = color;
+        isSelected = false;
     }
 }
