@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1389212959231512}
+  m_RootGameObject: {fileID: 1082981691939934}
   m_IsPrefabAsset: 1
---- !u!1 &1389212959231512
+--- !u!1 &1082981691939934
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4640452976343356}
-  - component: {fileID: 212898451194778168}
-  - component: {fileID: 114718202065156252}
-  - component: {fileID: 61932441376749662}
-  - component: {fileID: 114020268160567416}
+  - component: {fileID: 4896638336631852}
+  - component: {fileID: 212001536436041022}
+  - component: {fileID: 61368599308450382}
+  - component: {fileID: 114674496424928688}
+  - component: {fileID: 114875756761621488}
   m_Layer: 0
-  m_Name: Hisya
+  m_Name: OshoE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4640452976343356
+--- !u!4 &4896638336631852
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389212959231512}
+  m_GameObject: {fileID: 1082981691939934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0309967, y: 0.9375212, z: 0.043945312}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61932441376749662
+--- !u!61 &61368599308450382
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389212959231512}
+  m_GameObject: {fileID: 1082981691939934}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -68,53 +68,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
---- !u!114 &114020268160567416
+--- !u!114 &114674496424928688
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389212959231512}
+  m_GameObject: {fileID: 1082981691939934}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11500000, guid: 35557258f2770cd45a8afa97696b84da, type: 3}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 1
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Delegates: []
   delegates: []
---- !u!114 &114718202065156252
+--- !u!114 &114875756761621488
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389212959231512}
+  m_GameObject: {fileID: 1082981691939934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf0be5321506d34089abdfbc23cec42, type: 3}
+  m_Script: {fileID: 11500000, guid: ecbe6aca21123fc49842e4bd73e1ce26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212898451194778168
+  isSelected: 0
+--- !u!212 &212001536436041022
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389212959231512}
+  m_GameObject: {fileID: 1082981691939934}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -144,7 +128,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 01f9821d42e9e3e4cbae917615185680, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e32d2c46f1bbc3e429d39510fccaacb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

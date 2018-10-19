@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61910911784621756}
   - component: {fileID: 114084895548123460}
   m_Layer: 0
-  m_Name: Osho
+  m_Name: OshoF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940e02d68838f894a91fabe15cd0e835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
 --- !u!114 &114084895548123460
 MonoBehaviour:
   m_ObjectHideFlags: 1
