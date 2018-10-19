@@ -6,13 +6,23 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// 駒のスクリプトのベースクラス
 /// </summary>
-public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
+public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler {
     protected SpriteRenderer spriteRenderer;
     public bool isSelected = false;
     protected List<Movable> movableList = new List<Movable>();
 
+    public TeamEnum team;
+
     protected GameManager gameManager;
     protected Map map;
+
+    public float x {
+        get { return GetComponent<Transform>().position.x;}
+    }
+
+    public float y {
+        get { return GetComponent<Transform>().position.y; }
+    }
 
     // Use this for initialization
     protected virtual void Start () {

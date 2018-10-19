@@ -9,6 +9,7 @@ public class HisyaF : BaseKoma {
 
     // Use this for initialization
     protected override void Start() {
+        team = TeamEnum.friend;
         base.Start();
     }
 

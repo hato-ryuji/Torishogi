@@ -117,9 +117,25 @@ public class Map : MonoBehaviour {
             HighlightPositionY < 0 || HighlightPositionY >= rows) {
             return false;
         }
-        GameObject highlight = Instantiate(HighlightPrefab, new Vector3(HighlightPositionX, HighlightPositionY, 0.0f), Quaternion.identity);
-        HighlightCellList.Add(highlight);
-        return true;
+        //移動先のマスに駒が存在する駒を取得
+        BaseKoma koma = existKoma(HighlightPositionX, HighlightPositionY);
+        if (koma == null) {
+            GameObject highlight = Instantiate(HighlightPrefab, new Vector3(HighlightPositionX, HighlightPositionY, 0.0f), Quaternion.identity);
+            HighlightCellList.Add(highlight);
+            return true;
+        }
+        else if (koma.team == TeamEnum.friend) {
+            return false;
+        }
+        else {
+            GameObject highlight = Instantiate(HighlightPrefab, new Vector3(HighlightPositionX, HighlightPositionY, 0.0f), Quaternion.identity);
+            HighlightCellList.Add(highlight);
+            return false;
+        }
+    }
+
+    private BaseKoma existKoma(float x, float y) {
+        return onBoardKomaList.FirstOrDefault(val => val.x == x && val.y == y);
     }
 
     /// <summary>

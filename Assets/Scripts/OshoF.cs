@@ -9,8 +9,8 @@ public class OshoF: BaseKoma {
 
     // Use this for initialization
     protected override void Start() {
+        team = TeamEnum.friend;
         base.Start();
-
     }
 
     protected override void SetupMovableList() {
