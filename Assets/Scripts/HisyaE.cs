@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 飛車
 /// </summary>
-public class Hisya : BaseKoma {
+public class HisyaE : BaseKoma {
 
     // Use this for initialization
     protected override void Start() {

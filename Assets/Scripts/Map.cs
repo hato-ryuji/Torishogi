@@ -9,8 +9,10 @@ using UnityEngine;
 public class Map : MonoBehaviour {
 
     //各コマのPrefab
-    public GameObject oshoPrefab;
-    public GameObject hisyaPrefab;
+    public GameObject oshoFPrefab;
+    public GameObject hisyaFPrefab;
+    public GameObject oshoEPrefab;
+    public GameObject hisyaEPrefab;
 
     /// <summary>
     /// 移動候補のマス目に合わせるハイライト
@@ -18,8 +20,8 @@ public class Map : MonoBehaviour {
     public GameObject HighlightPrefab;
 
     //盤面のサイズ
-    private int columns = 7;
-    private int rows = 7;
+    private const int columns = 7;
+    private const int rows = 7;
 
     /// <summary>
     /// マップ上に存在しているすべての駒
@@ -39,26 +41,51 @@ public class Map : MonoBehaviour {
     }
 
     /// <summary>
-    /// 駒の初期設定の処理を記載する予定。
-    /// ・今は交互に駒を並べているだけ
+    /// 駒の初期配置を行う
     /// </summary>
     private void SetupKoma() {
-        bool kirikae = true;
-        for (int x = 0; x < columns; x++) {
-            for (int y = 0; y < rows; y++) {
-                if (kirikae) {
-                    GameObject komaObject = Instantiate(oshoPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
-                    BaseKoma baseKoma = komaObject.GetComponent<BaseKoma>();
-                    onBoardKomaList.Add(baseKoma);
+        //画面上ではY軸は下が０なので、上下逆になる
+        KomaEnum[,] startBoard = new KomaEnum[rows, columns] {
+            { KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.oshoF, KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF },
+            { KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF, KomaEnum.hisyaF },
+            { KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none },
+            { KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none },
+            { KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none, KomaEnum.none },
+            { KomaEnum.hisyae, KomaEnum.hisyae, KomaEnum.hisyae, KomaEnum.oshoE, KomaEnum.hisyae, KomaEnum.hisyae, KomaEnum.hisyae },
+            { KomaEnum.hisyae, KomaEnum.hisyae, KomaEnum.hisyae, KomaEnum.oshoE, KomaEnum.hisyae, KomaEnum.hisyae, KomaEnum.hisyae }
+        };
+
+        for (int y = 0; y < startBoard.GetLength(0); y++) {
+            for (int x = 0; x < startBoard.GetLength(1); x++) {
+                KomaEnum kimaKind = startBoard[y, x];
+                switch (kimaKind) {
+                    case KomaEnum.none:
+                        // 何も行わない
+                        break;
+                    case KomaEnum.oshoF:
+                        putKoma(oshoFPrefab, x, y);
+                        break;
+                    case KomaEnum.oshoE:
+                        putKoma(oshoEPrefab, x, y);
+                        break;
+                    case KomaEnum.hisyaF:
+                        putKoma(hisyaFPrefab, x, y);
+                        break;
+                    case KomaEnum.hisyae:
+                        putKoma(hisyaEPrefab, x, y);
+                        break;
+                    default:
+                        break;
                 }
-                else {
-                    GameObject komaObject = Instantiate(hisyaPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
-                    BaseKoma baseKoma = komaObject.GetComponent<BaseKoma>();
-                    onBoardKomaList.Add(baseKoma);
-                }
-                kirikae = !kirikae;
             }
         }
+        
+    }
+
+    private void putKoma(GameObject komaPrefab, int x, int y) {
+        GameObject komaObject = Instantiate(komaPrefab, new Vector3(x, y, 0.0f), Quaternion.identity);
+        BaseKoma baseKoma = komaObject.GetComponent<BaseKoma>();
+        onBoardKomaList.Add(baseKoma);
     }
 
     public void AddHighlightMovableTile(List<Movable> movableList, GameObject komaGameObject) {

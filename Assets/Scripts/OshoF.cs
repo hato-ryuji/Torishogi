@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 王将
 /// </summary>
-public class Osho : BaseKoma {
+public class OshoF: BaseKoma {
 
     // Use this for initialization
     protected override void Start() {

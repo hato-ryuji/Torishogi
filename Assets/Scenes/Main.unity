@@ -215,6 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535933660}
   - component: {fileID: 535933659}
+  - component: {fileID: 535933661}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -233,11 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35557258f2770cd45a8afa97696b84da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oshoPrefab: {fileID: 1893007551718568, guid: 0c0bc2d1faacdfd4d99c008145a155de, type: 2}
-  hisyaPrefab: {fileID: 1389212959231512, guid: 462b87bb6c8698940bcdbee5674f9943,
-    type: 2}
-  HighlightPrefab: {fileID: 1718042316063028, guid: 8ab1a37e6fba71448a156e89adcfe6e2,
-    type: 2}
 --- !u!4 &535933660
 Transform:
   m_ObjectHideFlags: 0
@@ -251,6 +247,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &535933661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535933658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7064356ffa6a094eb170a36f5ae1cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oshoFPrefab: {fileID: 1893007551718568, guid: 0c0bc2d1faacdfd4d99c008145a155de,
+    type: 2}
+  hisyaFPrefab: {fileID: 1389212959231512, guid: 462b87bb6c8698940bcdbee5674f9943,
+    type: 2}
+  oshoEPrefab: {fileID: 1082981691939934, guid: 16713a0827cf8154683c8fe28e07c1d4,
+    type: 2}
+  hisyaEPrefab: {fileID: 1260911856426538, guid: 0a64f31f087230143bbc8e0f766c09a5,
+    type: 2}
+  HighlightPrefab: {fileID: 1718042316063028, guid: 8ab1a37e6fba71448a156e89adcfe6e2,
+    type: 2}
 --- !u!1 &1784298319
 GameObject:
   m_ObjectHideFlags: 0
