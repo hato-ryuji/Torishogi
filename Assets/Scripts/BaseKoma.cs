@@ -51,6 +51,7 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
         else if(map.FocusingUnit != this) {
             Debug.Log("C");
             //map.FocusingUnitに対してフォーカス取り消し処理
+            map.FocusingUnit.Unfocusing();
             map.ClearHighlightMovableTile();
             Focusing();
             map.AddHighlightMovableTile(movableList, gameObject);
@@ -60,7 +61,7 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
     /// <summary>
     /// この駒が選択状態になった
     /// </summary>
-    private void Focusing() {
+    protected void Focusing() {
         isSelected = true;
         Color color = spriteRenderer.color;
         color.a = 0.7f;
@@ -70,7 +71,7 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler{
     /// <summary>
     /// この駒が非選択状態になった
     /// </summary>
-    private void Unfocusing() {
+    protected void Unfocusing() {
         isSelected = false;
         Color color = spriteRenderer.color;
         color.a = 1.0f;
