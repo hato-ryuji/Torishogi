@@ -148,6 +148,15 @@ public class Map : MonoBehaviour {
         HighlightCellList.Clear();
     }
 
+    /// <summary>
+    /// ハイライトの位置に駒を移動する。
+    /// </summary>
+    /// <param name="highlight"></param>
+    public void MoveHighlightPosirion(GameObject highlight) {
+        FocusingUnit.Move(highlight.transform.position);
+        ClearHighlightMovableTile();
+    }
+
     // Use this for initialization
     void Start () {
         SetupKoma();
