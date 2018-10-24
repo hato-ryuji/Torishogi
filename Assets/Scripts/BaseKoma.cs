@@ -87,4 +87,12 @@ public abstract class BaseKoma : MonoBehaviour, IPointerClickHandler {
         color.a = 1.0f;
         spriteRenderer.color = color;
     }
+
+    /// <summary>
+    /// 駒の座標を移動する
+    /// </summary>
+    /// <param name="destination">移動先の座標</param>
+    public void Move(Vector3 destination) {
+        gameObject.transform.position = destination;
+    }
 }

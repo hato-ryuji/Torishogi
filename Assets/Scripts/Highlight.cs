@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Highlight : MonoBehaviour , IPointerClickHandler {
+    private Map map;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        map = GameObject.Find("GameManager").GetComponent<Map>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,6 +21,6 @@ public class Highlight : MonoBehaviour , IPointerClickHandler {
     /// </summary>
     /// <param name="eventData"></param>
     public void OnPointerClick(PointerEventData eventData) {
-        throw new System.NotImplementedException();
+        map.MoveHighlightPosirion(gameObject);
     }
 }
